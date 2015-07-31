@@ -1,0 +1,12 @@
+  
+server:
+  rootPath: /service/*
+  applicationConnectors:
+    - type: http
+      port: 8090
+      
+    
+logging:
+  level: INFO  
+  
+
