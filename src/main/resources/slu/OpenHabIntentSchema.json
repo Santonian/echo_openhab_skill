@@ -1,0 +1,41 @@
+{
+  "intents": [
+    {
+      "intent": "SwitchLights",
+      "slots": [
+        {
+          "name": "Action",
+          "type": "LITERAL"
+        },
+        {
+          "name": "Switch",
+          "type": "LITERAL"
+        },
+        {
+          "name": "Location",
+          "type": "LITERAL"
+        }
+      ]
+    },
+    {
+      "intent": "AskTemperature",
+      "slots": [
+        {
+          "name": "Location",
+          "type": "LITERAL"
+        }]
+    },
+    {
+      "intent": "OperateTv",
+      "slots": [
+        {
+          "name": "Action",
+          "type": "LITERAL"
+        },
+        {
+          "name": "Channel",
+          "type": "NUMBER"
+        }]
+    }
+  ]
+}

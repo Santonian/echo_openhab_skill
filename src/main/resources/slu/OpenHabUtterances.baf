@@ -1,0 +1,27 @@
+SwitchLights turn {on|Action} the {kitchen|Location} {light|Switch}
+SwitchLights to turn {off|Action} the {living room|Location} {light|Switch}
+SwitchLights turn the {bedroom|Location} {light|Switch} {on|Action} 
+SwitchLights to turn the {dining room|Location} {light|Switch} {off|Action} 
+SwitchLights turn {on|Action} the {light|Switch} in the {bathroom|Location}
+SwitchLights to turn {off|Action} the {light|Switch} in the {office|Location}
+SwitchLights switch {on|Action} the {corridor|Location} {light|Switch}
+SwitchLights to switch {on|Action} the {cat room|Location} {light|Switch}
+SwitchLights switch the {basement|Location} {light|Switch} {on|Action} 
+SwitchLights to switch the {living room|Location} {light|Switch} {on|Action} 
+SwitchLights switch {on|Action} the {light|Switch} in the {kitchen|Location}
+SwitchLights to switch {on|Action} the {light|Switch} in the {office|Location}
+ 
+AskTemperature what is the temperature in the {office|Location}
+AskTemperature for {living room|Location} temperature
+AskTemperature for the {kitchen|Location} temperature
+AskTemperature what is the {bedroom|Location} temperature
+AskTemperature what the {dining room|Location} temperature is
+
+OperateTv to turn {on|Action} the TV
+OperateTv to turn the TV {off|Action} 
+OperateTv to switch to Channel {seven|Channel}
+OperateTv to turn to Channel {fifty four|Channel}
+OperateTv to switch on {one hundred two|Channel}
+OperateTv to switch to {forty four|Channel}
+OperateTv to turn on {eight|Channel}
+OperateTv to {mute|Action} the TV
