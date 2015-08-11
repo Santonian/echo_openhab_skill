@@ -1,4 +1,4 @@
-package de.openhabskill;
+package de.openhabskill.client;
 
 import java.net.URI;
 
@@ -12,10 +12,14 @@ import javax.ws.rs.core.UriBuilder;
 import org.junit.Assert;
 
 public class OpenHabClient {
+	private final String localhost;
+	private final Integer port;
 	private final Client httpClient;
 
-	public OpenHabClient(final Client httpClient) {
+	public OpenHabClient(final String localhost, final Integer port, final Client httpClient) {
 		this.httpClient = httpClient;
+		this.localhost = localhost;
+		this.port = port;
 	}
 
 	public void callOpenHab(final String onOff) {
@@ -28,7 +32,7 @@ public class OpenHabClient {
 
 	}
 
-	private static URI getBaseURI() {
-		return UriBuilder.fromUri("http://homeserver:8080/rest/items").build();
+	private URI getBaseURI() {
+		return UriBuilder.fromUri(String.format("http://%s:%d/rest/items", localhost, port)).build();
 	}
 }

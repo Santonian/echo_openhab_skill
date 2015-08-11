@@ -13,7 +13,6 @@ dependencies {
     compile 'io.dropwizard:dropwizard-core:0.8.2'
     compile 'io.dropwizard:dropwizard-assets:0.8.2'
     compile 'io.dropwizard:dropwizard-client:0.8.2'
-    compile 'de.thomaskrille:dropwizard-template-config:1.1.0'
 	compile 'org.apache.commons:commons-io:1.3.2'
 	compile 'commons-codec:commons-codec:1.10'
     compile 'org.mongodb.morphia:morphia:0.111'

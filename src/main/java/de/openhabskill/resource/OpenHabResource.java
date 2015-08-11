@@ -1,4 +1,4 @@
-package de.openhabskill;
+package de.openhabskill.resource;
 
 import java.io.IOException;
 
@@ -13,7 +13,9 @@ import javax.ws.rs.core.MediaType;
 
 import com.amazon.speech.speechlet.servlet.SpeechletServlet;
 
-import de.openhabskill.speechlet.OpenHabSpeechlet;
+import de.openhabskill.client.OpenHabClient;
+import de.openhabskill.entity.ItemDao;
+import de.openhabskill.service.OpenHabSpeechlet;
 
 @Path("/openhab")
 @Produces(MediaType.APPLICATION_JSON)
@@ -31,7 +33,7 @@ public class OpenHabResource extends SpeechletServlet {
 		super.doPost(servletRequest, servletResponse);
 	}
 
-	public OpenHabResource(final OpenHabClient openHabClient) {
-		setSpeechlet(new OpenHabSpeechlet(openHabClient));
+	public OpenHabResource(final OpenHabClient openHabClient, final ItemDao itemDao) {
+		setSpeechlet(new OpenHabSpeechlet(openHabClient, itemDao));
 	}
 }

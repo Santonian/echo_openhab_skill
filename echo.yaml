@@ -31,3 +31,6 @@ logging:
     de.openhabskill: DEBUG
      
 
+openHab:
+  host: YOUR_OPENHAB_HOST
+  port: YOUR_OPENHAB_PORT

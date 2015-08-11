@@ -13,13 +13,14 @@ public class ItemDao {
 		datastore = new Morphia().createDatastore(mongoClient, "openhabskill");
 	}
 
-	public Item SaveItem(final Item item) {
+	public Item save(final Item item) {
 		datastore.save(item);
 
 		return item;
 	}
 
-	public void DeleteItem(final Item item) {
+	public void delete(final Item item) {
 		datastore.delete(item);
 	}
+
 }

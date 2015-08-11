@@ -17,6 +17,10 @@ public class EchoOpenhabSkillConfiguration extends Configuration {
 	@NotNull
 	private DatabaseConfiguration database = new DatabaseConfiguration();
 
+	@Valid
+	@NotNull
+	private OpenHabConfiguration openHab = new OpenHabConfiguration();
+
 	@JsonProperty("httpClient")
 	public JerseyClientConfiguration getJerseyClientConfiguration() {
 		return httpClient;
@@ -35,6 +39,16 @@ public class EchoOpenhabSkillConfiguration extends Configuration {
 	@JsonProperty("database")
 	public void setDatabase(DatabaseConfiguration database) {
 		this.database = database;
+	}
+
+	@JsonProperty("openHab")
+	public OpenHabConfiguration getOpenHab() {
+		return openHab;
+	}
+
+	@JsonProperty("openHab")
+	public void setOpenHab(OpenHabConfiguration openHab) {
+		this.openHab = openHab;
 	}
 
 }
