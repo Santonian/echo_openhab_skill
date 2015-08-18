@@ -30,6 +30,7 @@ public class OpenHabSpeechlet implements Speechlet {
 		intentHandlers.add(new AskTemperatureIntentHandler(openHabClient, itemDao));
 		intentHandlers.add(new SwitchIntentHandler(openHabClient, itemDao));
 		intentHandlers.add(new TvIntentHandler(openHabClient, itemDao));
+		intentHandlers.add(new RollershutterIntentHandler(openHabClient, itemDao));
 	}
 
 	@Override
@@ -51,7 +52,7 @@ public class OpenHabSpeechlet implements Speechlet {
 	@Override
 	public SpeechletResponse onLaunch(LaunchRequest request, Session session) throws SpeechletException {
 		LOG.debug("onLaunch");
-		return IntentHandler.buildSpeechletResponse("Launch openHab", "Yes?", false);
+		return IntentHandler.buildSpeechletResponse("Yes?", false);
 	}
 
 	@Override

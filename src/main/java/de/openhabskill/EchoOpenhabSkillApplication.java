@@ -19,6 +19,8 @@ import io.dropwizard.setup.Environment;
 
 public class EchoOpenhabSkillApplication extends Application<EchoOpenhabSkillConfiguration> {
 
+	public static String SPEECHLET_APP_NAME = "OpenHab Skill";
+
 	public static void main(String[] args) throws Exception {
 		new EchoOpenhabSkillApplication().run(args);
 	}

@@ -23,4 +23,18 @@ public class ItemDao {
 		datastore.delete(item);
 	}
 
+	public Item findItem(final String location, final String itemName, final ItemType itemType) {
+
+		final Item item = datastore.find(Item.class).filter("location =", location).filter("itemName =", itemName)
+				.filter("itemType =", itemType).get();
+
+		return item;
+	}
+
+	public Item findItem(final String location, final ItemType itemType) {
+
+		final Item item = datastore.find(Item.class).filter("location=", location).filter("itemType =", itemType).get();
+
+		return item;
+	}
 }

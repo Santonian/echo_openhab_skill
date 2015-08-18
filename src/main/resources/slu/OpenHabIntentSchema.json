@@ -1,14 +1,14 @@
 {
   "intents": [
     {
-      "intent": "SwitchLights",
+      "intent": "Switch",
       "slots": [
         {
           "name": "Action",
           "type": "LITERAL"
         },
         {
-          "name": "Switch",
+          "name": "ItemName",
           "type": "LITERAL"
         },
         {
@@ -23,6 +23,38 @@
         {
           "name": "Location",
           "type": "LITERAL"
+        }]
+    },
+    {
+      "intent": "Rollershutter",
+      "slots": [
+        {
+          "name": "Location",
+          "type": "LITERAL"
+        },
+        {
+          "name": "ItemName",
+          "type": "LITERAL"
+        },
+        {
+          "name": "Action",
+          "type": "LITERAL"
+        }]
+    },
+    {
+      "intent": "Dimm",
+      "slots": [
+        {
+          "name": "Location",
+          "type": "LITERAL"
+        },
+        {
+          "name": "ItemName",
+          "type": "LITERAL"
+        },
+        {
+          "name": "Percent",
+          "type": "NUMBER"
         }]
     },
     {

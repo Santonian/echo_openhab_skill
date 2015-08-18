@@ -1,15 +1,15 @@
-SwitchLights turn {on|Action} the {kitchen|Location} {light|Switch}
-SwitchLights to turn {off|Action} the {living room|Location} {light|Switch}
-SwitchLights turn the {bedroom|Location} {light|Switch} {on|Action} 
-SwitchLights to turn the {dining room|Location} {light|Switch} {off|Action} 
-SwitchLights turn {on|Action} the {light|Switch} in the {bathroom|Location}
-SwitchLights to turn {off|Action} the {light|Switch} in the {office|Location}
-SwitchLights switch {on|Action} the {corridor|Location} {light|Switch}
-SwitchLights to switch {on|Action} the {cat room|Location} {light|Switch}
-SwitchLights switch the {basement|Location} {light|Switch} {on|Action} 
-SwitchLights to switch the {living room|Location} {light|Switch} {on|Action} 
-SwitchLights switch {on|Action} the {light|Switch} in the {kitchen|Location}
-SwitchLights to switch {on|Action} the {light|Switch} in the {office|Location}
+Switch turn {on|Action} the {kitchen|Location} {light|ItemName}
+Switch to turn {off|Action} the {living room|Location} {light|ItemName}
+Switch turn the {bedroom|Location} {light|ItemName} {on|Action} 
+Switch to turn the {dining room|Location} {light|ItemName} {off|Action} 
+Switch turn {on|Action} the {light|ItemName} in the {bathroom|Location}
+Switch to turn {off|Action} the {light|ItemName} in the {office|Location}
+Switch switch {on|Action} the {corridor|Location} {light|ItemName}
+Switch to switch {on|Action} the {cat room|Location} {light|ItemName}
+Switch switch the {basement|Location} {light|ItemName} {on|Action} 
+Switch to switch the {living room|Location} {light|ItemName} {on|Action} 
+Switch switch {on|Action} the {light|ItemName} in the {kitchen|Location}
+Switch to switch {on|Action} the {light|ItemName} in the {office|Location}
  
 AskTemperature what is the temperature in the {office|Location}
 AskTemperature for {living room|Location} temperature
@@ -25,3 +25,26 @@ OperateTv to switch on {one hundred two|Channel}
 OperateTv to switch to {forty four|Channel}
 OperateTv to turn on {eight|Channel}
 OperateTv to {mute|Action} the TV
+
+Rollershutter to {raise|Action} the shutter in the {living room|Location} 
+Rollershutter to {lower|Action} the roller shutter in the {office|Location} 
+Rollershutter {stop|Action} the shutter in the {kitchen|Location} 
+Rollershutter {lower|Action} the roller shutter in the {bedroom|Location} 
+Rollershutter roller shutter {down|Action} in the {bedroom|Location} 
+Rollershutter shutter {up|Action} in the {bedroom|Location}
+Rollershutter shutter in the {bedroom|Location} {up|Action}
+Rollershutter roller shutter in the {dining room|Location} {down|Action}
+Rollershutter to {raise|Action} the {left|ItemName} shutter in the {living room|Location} 
+Rollershutter to {lower|Action} the {right|ItemName} roller shutter in the {office|Location} 
+Rollershutter {stop|Action} the {north|ItemName} shutter in the {kitchen|Location} 
+Rollershutter {lower|Action} the {south|ItemName} roller shutter in the {bedroom|Location} 
+Rollershutter {west|ItemName} roller shutter {down|Action} in the {bedroom|Location} 
+Rollershutter {east|ItemName} shutter {up|Action} in the {bedroom|Location}
+Rollershutter {all|ItemName} shutter in the {bedroom|Location} {up|Action}
+Rollershutter {all|ItemName} roller shutter in the {dining room|Location} {down|Action}
+
+Dimm to set the {living room|Location} {light|ItemName} to {fifty|Percent} Percent
+Dimm set the {kitchen|Location} {light|ItemName} to {ten|Percent} Percent
+Dimm to set the {light|ItemName} in the {dining room|Location} to {fifty five|Percent} Percent
+Dimm set the {light|ItemName} in the {living room|Location} to {eighty|Percent} Percent
+
