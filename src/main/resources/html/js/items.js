@@ -10,7 +10,8 @@ itemApp.controller("itemController", function($scope, Item){
 	$scope.itemTypes = [
 	               "SWITCH", 
 	               "ROLLERSHUTTER", 
-	               "NUMBER"
+	               "NUMBER",
+	               "TV"
 	               ];
 	
 	

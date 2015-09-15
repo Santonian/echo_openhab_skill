@@ -25,6 +25,11 @@ OperateTv to switch on {one hundred two|Channel}
 OperateTv to switch to {forty four|Channel}
 OperateTv to turn on {eight|Channel}
 OperateTv to {mute|Action} the TV
+OperateTv to {volume up|Action} the TV
+OperateTv to {volume down|Action} the TV
+OperateTv to start the activity {TV|Action}
+OperateTv to switch to activity {play|Action}
+OperateTv to turn to activity {apple tv|Action}
 
 Rollershutter to {raise|Action} the shutter in the {living room|Location} 
 Rollershutter to {lower|Action} the roller shutter in the {office|Location} 

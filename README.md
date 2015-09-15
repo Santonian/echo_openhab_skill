@@ -1,6 +1,6 @@
 # echo_openhab_skill
 
-This is an Skill for Amazon Echo. 
+This is a Skill for Amazon Echo. 
 The intention of this Skill is to receive commands from Alexa and call openHab per REST interface to perform diffrent openHab actions like
 - turn on/off lights or sockets
 - raise or lower rollershutter

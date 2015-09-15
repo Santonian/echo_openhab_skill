@@ -11,12 +11,20 @@ import com.amazon.speech.speechlet.SpeechletResponse;
 import com.google.common.collect.Lists;
 
 import de.openhabskill.client.OpenHabClient;
+import de.openhabskill.entity.Item;
 import de.openhabskill.entity.ItemDao;
+import de.openhabskill.entity.ItemType;
 
 public class TvIntentHandler extends IntentHandler {
 	protected static final Logger LOG = LoggerFactory.getLogger(TvIntentHandler.class);
 
 	private static final String TV = "OperateTv";
+
+	// this could be extended for multiple harmony controlled tvs
+	private static final String LOCATION = "living room";
+
+	private static final String DEFAULT_COMMAND = "ON";
+	private static final String CHANNEL_ITEM_NAME = "CHANNEL";
 
 	public TvIntentHandler(OpenHabClient openHabClient, ItemDao itemDao) {
 		super(openHabClient, itemDao);
@@ -27,7 +35,20 @@ public class TvIntentHandler extends IntentHandler {
 		final Slot action = intent.getSlot(SLOT_ACTION);
 		final Slot channel = intent.getSlot(SLOT_CHANNEL);
 
-		return buildSpeechletResponse("TV is going to be operated!", true);
+		// Only one Slot can be filled
+		if (action != null && action.getValue() != null) {
+			final Item item = itemDao.findItem(LOCATION, action.getValue(), ItemType.TV);
+			if (item != null) {
+				openHabClient.sendCommand(item.getOpenHabItem(), DEFAULT_COMMAND);
+			}
+		} else if (channel != null && channel.getValue() != null) {
+			final Item item = itemDao.findItem(LOCATION, CHANNEL_ITEM_NAME, ItemType.TV);
+			if (item != null) {
+				openHabClient.sendCommand(item.getOpenHabItem(), channel.getValue());
+			}
+		}
+
+		return randomOkResponse();
 	}
 
 	@Override
@@ -45,4 +66,8 @@ public class TvIntentHandler extends IntentHandler {
 		return Lists.newArrayList(SLOT_ACTION, SLOT_CHANNEL);
 	}
 
+	@Override
+	protected List<String> getOptionalSlotNames() {
+		return Lists.newArrayList(SLOT_ACTION, SLOT_CHANNEL);
+	}
 }
