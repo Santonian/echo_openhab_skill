@@ -4,8 +4,6 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.tartarus.snowball.SnowballStemmer;
-import org.tartarus.snowball.ext.englishStemmer;
 
 import com.amazon.speech.slu.Intent;
 import com.amazon.speech.slu.Slot;
@@ -28,11 +26,8 @@ public class SwitchIntentHandler extends IntentHandler {
 
 	private static final String SWITCH = "Switch";
 
-	private SnowballStemmer stemmer;
-
 	public SwitchIntentHandler(OpenHabClient openHabClient, ItemDao itemDao) {
 		super(openHabClient, itemDao);
-		stemmer = new englishStemmer();
 	}
 
 	@Override
@@ -42,13 +37,9 @@ public class SwitchIntentHandler extends IntentHandler {
 		final Slot location = intent.getSlot(SLOT_LOCATION);
 
 		Item item = itemDao.findItem(location.getValue(), itemName.getValue(), ItemType.SWITCH);
-		// We assume, the stored itemName is singular, but the spoken word
-		// sometime tends to be plural, so we try to stemm the word and try
-		// again.
+		// Try again with a stemmed version of item name
 		if (item == null) {
-			stemmer.setCurrent(itemName.getValue());
-			stemmer.stem();
-			final String stemmedItemValue = stemmer.getCurrent();
+			final String stemmedItemValue = stemmName(itemName.getValue());
 			LOG.debug("ItemName <{}> - Stemmed Value <{}>", itemName.getValue(), stemmedItemValue);
 			item = itemDao.findItem(location.getValue(), stemmedItemValue, ItemType.SWITCH);
 		}

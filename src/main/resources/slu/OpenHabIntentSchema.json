@@ -13,7 +13,7 @@
         },
         {
           "name": "Location",
-          "type": "LITERAL"
+          "type": "LOCATION_TYPE"
         }
       ]
     },
@@ -22,7 +22,7 @@
       "slots": [
         {
           "name": "Location",
-          "type": "LITERAL"
+          "type": "LOCATION_TYPE"
         }]
     },
     {
@@ -30,7 +30,7 @@
       "slots": [
         {
           "name": "Location",
-          "type": "LITERAL"
+          "type": "LOCATION_TYPE"
         },
         {
           "name": "ItemName",
@@ -46,7 +46,7 @@
       "slots": [
         {
           "name": "Location",
-          "type": "LITERAL"
+          "type": "LOCATION_TYPE"
         },
         {
           "name": "ItemName",
