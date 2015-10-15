@@ -19,7 +19,7 @@ import de.openhabskill.entity.ItemType;
  * Handles intent for an openHab Dimmer Item
  * 
  * @author Reinhard
- *
+ * 
  */
 public class DimIntentHandler extends IntentHandler {
 	protected static final Logger LOG = LoggerFactory.getLogger(DimIntentHandler.class);
