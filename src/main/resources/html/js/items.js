@@ -11,7 +11,8 @@ itemApp.controller("itemController", function($scope, Item){
 	               "SWITCH", 
 	               "ROLLERSHUTTER", 
 	               "NUMBER",
-	               "TV"
+	               "TV",
+	               "DIMMER"
 	               ];
 	
 	

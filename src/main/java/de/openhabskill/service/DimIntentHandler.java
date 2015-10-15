@@ -16,36 +16,35 @@ import de.openhabskill.entity.ItemDao;
 import de.openhabskill.entity.ItemType;
 
 /**
- * Handles intent for an openHab SwitchItem
+ * Handles intent for an openHab Dimmer Item
  * 
  * @author Reinhard
  *
  */
-public class SwitchIntentHandler extends IntentHandler {
-	protected static final Logger LOG = LoggerFactory.getLogger(SwitchIntentHandler.class);
+public class DimIntentHandler extends IntentHandler {
+	protected static final Logger LOG = LoggerFactory.getLogger(DimIntentHandler.class);
 
-	private static final String SWITCH = "Switch";
+	private static final String DIMM = "Dimm";
 
-	public SwitchIntentHandler(OpenHabClient openHabClient, ItemDao itemDao) {
+	public DimIntentHandler(OpenHabClient openHabClient, ItemDao itemDao) {
 		super(openHabClient, itemDao);
 	}
 
 	@Override
 	public SpeechletResponse handleIntentInternal(Intent intent) {
-		final Slot action = intent.getSlot(SLOT_ACTION);
+		final Slot percent = intent.getSlot(SLOT_PERCENT);
 		final Slot itemName = intent.getSlot(SLOT_ITEMNAME);
 		final Slot location = intent.getSlot(SLOT_LOCATION);
 
-		Item item = itemDao.findItem(location.getValue(), itemName.getValue(), ItemType.SWITCH);
+		Item item = itemDao.findItem(location.getValue(), itemName.getValue(), ItemType.DIMMER);
 		// Try again with a stemmed version of item name
 		if (item == null) {
 			final String stemmedItemValue = stemmName(itemName.getValue());
-			LOG.debug("ItemName <{}> - Stemmed Value <{}>", itemName.getValue(), stemmedItemValue);
-			item = itemDao.findItem(location.getValue(), stemmedItemValue, ItemType.SWITCH);
+			item = itemDao.findItem(location.getValue(), stemmedItemValue, ItemType.DIMMER);
 		}
 
 		if (item != null) {
-			if (!openHabClient.sendCommand(item.getOpenHabItem(), action.getValue())) {
+			if (!openHabClient.sendCommand(item.getOpenHabItem(), percent.getValue())) {
 				return errorResponse(String.format(
 						"I could not operate the location %s and the itemname %s. There was a openHab communication error.",
 						location.getValue(), itemName.getValue()));
@@ -60,7 +59,7 @@ public class SwitchIntentHandler extends IntentHandler {
 
 	@Override
 	public String getIntentName() {
-		return SWITCH;
+		return DIMM;
 	}
 
 	@Override
@@ -70,7 +69,7 @@ public class SwitchIntentHandler extends IntentHandler {
 
 	@Override
 	protected List<String> getSlotNames() {
-		return Lists.newArrayList(SLOT_ACTION, SLOT_ITEMNAME, SLOT_LOCATION);
+		return Lists.newArrayList(SLOT_PERCENT, SLOT_ITEMNAME, SLOT_LOCATION);
 	}
 
 }

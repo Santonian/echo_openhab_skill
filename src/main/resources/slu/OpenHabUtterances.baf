@@ -1,21 +1,21 @@
-Switch turn {on|Action} the {kitchen|Location} {light|ItemName}
-Switch to turn {off|Action} the {living room|Location} {light|ItemName}
-Switch turn the {bedroom|Location} {light|ItemName} {on|Action} 
-Switch to turn the {dining room|Location} {light|ItemName} {off|Action} 
-Switch turn {on|Action} the {light|ItemName} in the {bathroom|Location}
-Switch to turn {off|Action} the {light|ItemName} in the {office|Location}
-Switch switch {on|Action} the {corridor|Location} {light|ItemName}
-Switch to switch {on|Action} the {cat room|Location} {light|ItemName}
-Switch switch the {basement|Location} {light|ItemName} {on|Action} 
-Switch to switch the {living room|Location} {light|ItemName} {on|Action} 
-Switch switch {on|Action} the {light|ItemName} in the {kitchen|Location}
-Switch to switch {on|Action} the {light|ItemName} in the {office|Location}
+Switch turn {on|Action} the {Location} {light|ItemName}
+Switch to turn {off|Action} the {Location} {light|ItemName}
+Switch turn the {Location} {light|ItemName} {on|Action} 
+Switch to turn the {Location} {light|ItemName} {off|Action} 
+Switch turn {on|Action} the {light|ItemName} in the {Location}
+Switch to turn {off|Action} the {light|ItemName} in the {Location}
+Switch switch {on|Action} the {Location} {light|ItemName}
+Switch to switch {on|Action} the {Location} {light|ItemName}
+Switch switch the {Location} {light|ItemName} {on|Action} 
+Switch to switch the {Location} {light|ItemName} {on|Action} 
+Switch switch {on|Action} the {light|ItemName} in the {Location}
+Switch to switch {on|Action} the {light|ItemName} in the {Location}
  
-AskTemperature what is the temperature in the {office|Location}
-AskTemperature for {living room|Location} temperature
-AskTemperature for the {kitchen|Location} temperature
-AskTemperature what is the {bedroom|Location} temperature
-AskTemperature what the {dining room|Location} temperature is
+AskTemperature what is the temperature in the {Location}
+AskTemperature for {Location} temperature
+AskTemperature for the {Location} temperature
+AskTemperature what is the {Location} temperature
+AskTemperature what the {Location} temperature is
 
 OperateTv to turn {on|Action} the TV
 OperateTv to turn the TV {off|Action} 
@@ -31,25 +31,25 @@ OperateTv to start the activity {TV|Action}
 OperateTv to switch to activity {play|Action}
 OperateTv to turn to activity {apple tv|Action}
 
-Rollershutter to {raise|Action} the shutter in the {living room|Location} 
-Rollershutter to {lower|Action} the roller shutter in the {office|Location} 
-Rollershutter {stop|Action} the shutter in the {kitchen|Location} 
-Rollershutter {lower|Action} the roller shutter in the {bedroom|Location} 
-Rollershutter roller shutter {down|Action} in the {bedroom|Location} 
-Rollershutter shutter {up|Action} in the {bedroom|Location}
-Rollershutter shutter in the {bedroom|Location} {up|Action}
-Rollershutter roller shutter in the {dining room|Location} {down|Action}
-Rollershutter to {raise|Action} the {left|ItemName} shutter in the {living room|Location} 
-Rollershutter to {lower|Action} the {right|ItemName} roller shutter in the {office|Location} 
-Rollershutter {stop|Action} the {north|ItemName} shutter in the {kitchen|Location} 
-Rollershutter {lower|Action} the {south|ItemName} roller shutter in the {bedroom|Location} 
-Rollershutter {west|ItemName} roller shutter {down|Action} in the {bedroom|Location} 
-Rollershutter {east|ItemName} shutter {up|Action} in the {bedroom|Location}
-Rollershutter {all|ItemName} shutter in the {bedroom|Location} {up|Action}
-Rollershutter {all|ItemName} roller shutter in the {dining room|Location} {down|Action}
+Rollershutter to {raise|Action} the shutter in the {Location} 
+Rollershutter to {lower|Action} the roller shutter in the {Location} 
+Rollershutter {stop|Action} the shutter in the {Location} 
+Rollershutter {lower|Action} the roller shutter in the {Location} 
+Rollershutter roller shutter {down|Action} in the {Location} 
+Rollershutter shutter {up|Action} in the {Location}
+Rollershutter shutter in the {Location} {up|Action}
+Rollershutter roller shutter in the {Location} {down|Action}
+Rollershutter to {raise|Action} the {left|ItemName} shutter in the {Location} 
+Rollershutter to {lower|Action} the {right|ItemName} roller shutter in the {Location} 
+Rollershutter {stop|Action} the {north|ItemName} shutter in the {Location} 
+Rollershutter {lower|Action} the {south|ItemName} roller shutter in the {Location} 
+Rollershutter {west|ItemName} roller shutter {down|Action} in the {Location} 
+Rollershutter {east|ItemName} shutter {up|Action} in the {Location}
+Rollershutter {all|ItemName} shutter in the {Location} {up|Action}
+Rollershutter {all|ItemName} roller shutter in the {Location} {down|Action}
 
-Dimm to set the {living room|Location} {light|ItemName} to {fifty|Percent} Percent
-Dimm set the {kitchen|Location} {light|ItemName} to {ten|Percent} Percent
-Dimm to set the {light|ItemName} in the {dining room|Location} to {fifty five|Percent} Percent
-Dimm set the {light|ItemName} in the {living room|Location} to {eighty|Percent} Percent
+Dimm to set the {Location} {light|ItemName} to {fifty|Percent} Percent
+Dimm set the {Location} {light|ItemName} to {ten|Percent} Percent
+Dimm to set the {light|ItemName} in the {Location} to {fifty five|Percent} Percent
+Dimm set the {light|ItemName} in the {Location} to {eighty|Percent} Percent
 

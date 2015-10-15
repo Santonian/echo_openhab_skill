@@ -1,0 +1,10 @@
+LOCATION_TYPE
+living room
+dining room
+kitchen
+bedroom
+outside
+garage
+office
+corridor
+basement

@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Random;
 
 import org.slf4j.Logger;
+import org.tartarus.snowball.SnowballStemmer;
+import org.tartarus.snowball.ext.englishStemmer;
 
 import com.amazon.speech.slu.Intent;
 import com.amazon.speech.slu.Slot;
@@ -29,6 +31,7 @@ public abstract class IntentHandler {
 	protected static final String SLOT_ACTION = "Action";
 	protected static final String SLOT_LOCATION = "Location";
 	protected static final String SLOT_CHANNEL = "Channel";
+	protected static final String SLOT_PERCENT = "Percent";
 
 	final protected OpenHabClient openHabClient;
 
@@ -36,11 +39,14 @@ public abstract class IntentHandler {
 
 	final private List<String> okValues = Lists.newArrayList("Ok", "Allright", "Done!", "Will do", "as you wish");
 
+	final protected SnowballStemmer stemmer;
+
 	final protected List<CommandAlternative> commandAlternatives = Lists.newArrayList();
 
 	public IntentHandler(final OpenHabClient openHabClient, final ItemDao itemDao) {
 		this.openHabClient = openHabClient;
 		this.itemDao = itemDao;
+		this.stemmer = new englishStemmer();
 
 		getLogger().debug("IntentHandler created.");
 	}
@@ -143,6 +149,20 @@ public abstract class IntentHandler {
 		response.setOutputSpeech(speech);
 		response.setCard(card);
 		return response;
+	}
+
+	/**
+	 * Try to transform a plural to a singular name
+	 * 
+	 * @param name
+	 * @return
+	 */
+	protected String stemmName(final String name) {
+		stemmer.setCurrent(name);
+		stemmer.stem();
+		final String stemmedName = stemmer.getCurrent();
+		getLogger().debug("ItemName <{}> - Stemmed Value <{}>", name, stemmedName);
+		return stemmedName;
 	}
 
 }
