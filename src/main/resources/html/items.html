@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="de" ng-app="itemApp">
 <head>
-    <title>Items for OpenHab Echo Skill</title>
+    <title>Items for Echo OpenHab Skill</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 
@@ -10,7 +10,14 @@
     <script type="text/javascript" src="js/items.js"></script>
 </head>
 <body >
-	<div ng-controller="itemController">
+	<div ng-controller="itemController" class="container">
+        <alert ng-repeat="message in messages" 
+        	type="message.type" 
+        	close="closeAlert($index)">
+            {{message.msg}}
+            {{message|json}}
+        </alert>
+
 		<form ng-submit="storeItem()">
 			<div class="form-group">
 				<label>OpenHab Item Name</label>
@@ -21,7 +28,7 @@
 				<select ng-model="item.itemType" ng-options="type for type in itemTypes" class="form-control"></select>
 			</div>
 			<div class="form-group">
-				<label>Item Name (spoken item Name to Alexa like "light". You should (must) use singular. Use light, not lights)</label>
+				<label>Item Name (spoken item Name to Alexa. Like "light". You should (must) use singular. Use light, not lights)</label>
 				<input type="text" ng-model="item.itemName" class="form-control" ng-required="true"/>
 			</div>
 			<div class="form-group">
@@ -29,7 +36,7 @@
 				<input type="text" ng-model="item.location" class="form-control" ng-required="true"/>
 			</div>
 			<div class="form-group">
-				<input type="submit" class="btn btn-default btn-lg" value="Speichern"/>
+				<input type="submit" class="btn btn-default btn-lg" value="Save Item"/>
 			</div>
 		</form>
 		<pre>{{item|json}}</pre>

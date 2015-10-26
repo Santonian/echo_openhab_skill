@@ -17,6 +17,14 @@ itemApp.controller("itemController", function($scope, Item){
 	
 	
 	$scope.storeItem = function() {
-		Item.save($scope.item)
+        $scope.messages = [];
+
+        Item.save($scope.item)
+        
+        $scope.messages.push({type: 'success', msg: 'Item saved'})
 	}
+	
+    $scope.closeAlert = function (index) {
+        $scope.messages.splice(index, 1);
+    };
 });

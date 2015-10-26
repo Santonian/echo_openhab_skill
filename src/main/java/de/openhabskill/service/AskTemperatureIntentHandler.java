@@ -50,7 +50,7 @@ public class AskTemperatureIntentHandler extends IntentHandler {
 			}
 
 			return buildSpeechletResponse(
-					String.format("The %s temperature is %.1d degrees.", location.getValue(), temp), true);
+					String.format("The %s temperature is %.1f degrees.", location.getValue(), temp), true);
 		} else {
 			return errorResponse(
 					String.format("There is no item configured for the location %s.", location.getValue()));
