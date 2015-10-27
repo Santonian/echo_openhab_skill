@@ -1,5 +1,4 @@
-var itemApp = angular.module('itemApp', ['ngResource'])
-
+var itemApp = angular.module('itemApp', ['ngResource', 'ui.bootstrap'])
 
 itemApp.factory("Item", function($resource){
 	return $resource('/service/item')

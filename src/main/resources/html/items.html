@@ -8,14 +8,12 @@
     <script type="text/javascript" src="js/angular/angular.js"></script>
     <script type="text/javascript" src="js/angular/angular-resource.js"></script>
     <script type="text/javascript" src="js/items.js"></script>
+	<script type="text/javascript" src="js/ui-bootstrap-tpls-0.14.3.min.js"></script>
 </head>
 <body >
 	<div ng-controller="itemController" class="container">
-        <alert ng-repeat="message in messages" 
-        	type="message.type" 
-        	close="closeAlert($index)">
+        <alert ng-repeat="message in messages" type="message.type" close="closeAlert($index)">
             {{message.msg}}
-            {{message|json}}
         </alert>
 
 		<form ng-submit="storeItem()">
