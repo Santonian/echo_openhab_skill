@@ -8,3 +8,105 @@ garage
 office
 corridor
 basement 
+
+COLOR_TYPE
+White
+Red
+Green
+Blue
+Magenta
+Cyan
+Yellow
+Black
+Aquamarine
+Baker's Chocolate
+Blue Violet
+Brass
+Bright Gold
+Brown
+Bronze
+Bronze II
+Cadet Blue
+Cool Copper
+Copper
+Coral
+Corn Flower Blue
+Dark Brown
+Dark Green
+Dark Green Copper
+Dark Olive Green
+Dark Orchid
+Dark Purple
+Dark Slate Blue
+Dark Slate Grey
+Dark Tan
+Dark Turquoise
+Dark Wood
+Dim Grey
+Dusty Rose
+Feldspar
+Firebrick
+Flesh
+Forest Green
+Gold
+Goldenrod
+Grey
+Green Copper
+Green Yellow
+Hunter Green
+Indian Red
+Khaki
+Light Blue
+Light Grey
+Light Steel Blue
+Light Wood
+Lime Green
+Mandarian Orange
+Maroon
+Medium Aquamarine
+Medium Blue
+Medium Forest Green
+Medium Goldenrod
+Medium Orchid
+Medium Sea Green
+Medium Slate Blue
+Medium Spring Green
+Medium Turquoise
+Medium Violet Red
+Medium Wood
+Midnight Blue
+Navy Blue
+Neon Blue
+Neon Pink
+New Midnight Blue
+New Tan
+Old Gold
+Orange
+Orange Red
+Orchid
+Pale Green
+Pink
+Plum
+Quartz
+Rich Blue
+Salmon
+Scarlet
+Sea Green
+Semi-Sweet Chocolate
+Sienna
+Silver
+Sky Blue
+Slate Blue
+Spicy Pink
+Spring Green
+Steel Blue
+Summer Sky
+Tan
+Thistle
+Turquoise
+Very Dark Brown
+Very Light Grey
+Violet
+Violet Red
+Wheat
+Yellow Green

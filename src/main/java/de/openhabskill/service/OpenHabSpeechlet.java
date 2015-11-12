@@ -32,6 +32,7 @@ public class OpenHabSpeechlet implements Speechlet {
 		intentHandlers.add(new TvIntentHandler(openHabClient, itemDao));
 		intentHandlers.add(new RollershutterIntentHandler(openHabClient, itemDao));
 		intentHandlers.add(new DimIntentHandler(openHabClient, itemDao));
+		intentHandlers.add(new ColorIntentHandler(openHabClient, itemDao));
 	}
 
 	@Override

@@ -11,7 +11,8 @@ itemApp.controller("itemController", function($scope, Item){
 	               "ROLLERSHUTTER", 
 	               "NUMBER",
 	               "TV",
-	               "DIMMER"
+	               "DIMMER",
+	               "COLOR"
 	               ];
 	
 	
@@ -35,6 +36,10 @@ itemApp.controller("itemController", function($scope, Item){
 		case 'TV':
 			$scope.info.itemName = 'Item Name - TV Intent is WIP! - Put CHANNEL in this field for defining the channel command. Otherwise put the activity or action in this field'
 			$scope.info.location = 'Item Location - For TV Intent the only supported location is living room. So put "living room" in this field'
+			break;
+		case 'COLOR':
+			$scope.info.itemName = 'Item Name - Put COLOR in this field'
+			$scope.info.location = 'Item Location - The location of the RGB (if there are multiple RGB in a location, the skill must be modified)'
 			break;
 		default:
 			$scope.info.itemName = 'Item Name (spoken item Name to Alexa. Like "light". You should (must) use singular. Use light, not lights)'

@@ -58,6 +58,18 @@
         }]
     },
     {
+      "intent": "Color",
+      "slots": [
+        {
+          "name": "Location",
+          "type": "LOCATION_TYPE"
+        },
+        {
+          "name": "Color",
+          "type": "COLOR_TYPE"
+        }]
+    },
+    {
       "intent": "OperateTv",
       "slots": [
         {

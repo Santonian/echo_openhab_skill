@@ -7,5 +7,5 @@ package de.openhabskill.entity;
  *
  */
 public enum ItemType {
-	SWITCH, ROLLERSHUTTER, NUMBER, TV, DIMMER
+	SWITCH, ROLLERSHUTTER, NUMBER, TV, DIMMER, COLOR
 }

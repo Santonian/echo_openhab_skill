@@ -53,3 +53,7 @@ Dimm set the {Location} {light|ItemName} to {ten|Percent} Percent
 Dimm to set the {light|ItemName} in the {Location} to {fifty five|Percent} Percent
 Dimm set the {light|ItemName} in the {Location} to {eighty|Percent} Percent
 
+SetColor to set the {Location} color to {Color}
+SetColor set the {Location} color to {Color}
+SetColor to set the color of the {Location} to {Color}
+SetColor set the color of the {Location} to {Color}

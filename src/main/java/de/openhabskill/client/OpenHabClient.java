@@ -29,9 +29,16 @@ public class OpenHabClient {
 	public boolean sendCommand(final String openHabItemName, final String command) {
 		final WebTarget target = httpClient.target(getBaseURI());
 
+		LOG.debug("Send to OpenHab item {} command {}", openHabItemName, command.toUpperCase());
 		final Response response = target.path(openHabItemName).request().post(Entity.text(command.toUpperCase()));
 
-		return response.getStatusInfo().getFamily().equals(Status.Family.SUCCESSFUL);
+		if (response.getStatusInfo().getFamily().equals(Status.Family.SUCCESSFUL)) {
+			LOG.debug("OpenHab communication ok");
+			return true;
+		} else {
+			LOG.error("OpenHab Status Error {} - {}", response.getStatus(), response.getStatusInfo().getReasonPhrase());
+			return false;
+		}
 	}
 
 	public String getState(final String openHabItemName) {

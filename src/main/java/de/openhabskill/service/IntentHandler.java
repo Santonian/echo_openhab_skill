@@ -32,6 +32,7 @@ public abstract class IntentHandler {
 	protected static final String SLOT_LOCATION = "Location";
 	protected static final String SLOT_CHANNEL = "Channel";
 	protected static final String SLOT_PERCENT = "Percent";
+	protected static final String SLOT_COLOR = "Color";
 
 	final protected OpenHabClient openHabClient;
 
