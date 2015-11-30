@@ -8,6 +8,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.dropwizard.Configuration;
 import io.dropwizard.client.JerseyClientConfiguration;
 
+/**
+ * application configuration
+ * 
+ * @author Reinhard
+ *
+ */
 public class EchoOpenhabSkillConfiguration extends Configuration {
 	@Valid
 	@NotNull

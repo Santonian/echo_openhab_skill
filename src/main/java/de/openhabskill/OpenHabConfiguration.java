@@ -6,6 +6,12 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * configuration class for the openHab Server
+ * 
+ * @author Reinhard
+ *
+ */
 public class OpenHabConfiguration {
 
 	@NotEmpty

@@ -17,6 +17,12 @@ import io.dropwizard.client.JerseyClientBuilder;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 
+/**
+ * The main application class for the dropwizard {@link Application}
+ * 
+ * @author Reinhard
+ *
+ */
 public class EchoOpenhabSkillApplication extends Application<EchoOpenhabSkillConfiguration> {
 
 	public static String SPEECHLET_APP_NAME = "OpenHab Skill";

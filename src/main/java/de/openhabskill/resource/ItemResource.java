@@ -17,6 +17,12 @@ import javax.ws.rs.core.Response.Status;
 import de.openhabskill.entity.Item;
 import de.openhabskill.entity.ItemDao;
 
+/**
+ * REST interface for the UI to store openHab items in the mongoDB
+ * 
+ * @author Reinhard
+ *
+ */
 @Path("/item")
 @Produces(MediaType.APPLICATION_JSON)
 public class ItemResource {

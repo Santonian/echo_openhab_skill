@@ -19,6 +19,12 @@ import com.google.common.collect.Sets;
 import de.openhabskill.client.OpenHabClient;
 import de.openhabskill.entity.ItemDao;
 
+/**
+ * implements the {@link Speechlet} class from the ASK (Alexa Skills Kit)
+ * 
+ * @author Reinhard
+ *
+ */
 public class OpenHabSpeechlet implements Speechlet {
 
 	private static final Logger LOG = LoggerFactory.getLogger(OpenHabSpeechlet.class);

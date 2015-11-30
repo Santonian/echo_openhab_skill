@@ -17,6 +17,13 @@ import de.openhabskill.client.OpenHabClient;
 import de.openhabskill.entity.ItemDao;
 import de.openhabskill.service.OpenHabSpeechlet;
 
+/**
+ * This is the endpoint for the amazon skill. Amazon cloud will call this URL.
+ * Implements the {@link SpeechletServlet} from the ASK (Alexa SKills Kit)
+ * 
+ * @author Reinhard
+ *
+ */
 @Path("/openhab")
 @Produces(MediaType.APPLICATION_JSON)
 public class OpenHabResource extends SpeechletServlet {

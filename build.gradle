@@ -28,6 +28,7 @@ dependencies {
 }
 
 
+
 // Create the executable jar and exclude some certificates
 jar {
  
@@ -47,3 +48,13 @@ jar {
         }
     }
 }
+
+distributions {
+    main {
+        contents {
+            from { ['src/main/resources']}
+        }
+    }
+}
+
+

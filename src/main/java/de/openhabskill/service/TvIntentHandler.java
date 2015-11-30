@@ -15,6 +15,12 @@ import de.openhabskill.entity.Item;
 import de.openhabskill.entity.ItemDao;
 import de.openhabskill.entity.ItemType;
 
+/**
+ * handles TV intents
+ * 
+ * @author Reinhard
+ *
+ */
 public class TvIntentHandler extends IntentHandler {
 	protected static final Logger LOG = LoggerFactory.getLogger(TvIntentHandler.class);
 

@@ -13,6 +13,12 @@ import javax.ws.rs.core.UriBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * calls a openHab server per REST call to send a command to an item
+ * 
+ * @author Reinhard
+ *
+ */
 public class OpenHabClient {
 	private static final Logger LOG = LoggerFactory.getLogger(OpenHabClient.class);
 
