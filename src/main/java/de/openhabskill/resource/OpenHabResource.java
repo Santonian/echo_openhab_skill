@@ -18,8 +18,7 @@ import de.openhabskill.entity.ItemDao;
 import de.openhabskill.service.OpenHabSpeechlet;
 
 /**
- * This is the endpoint for the amazon skill. Amazon cloud will call this URL.
- * Implements the {@link SpeechletServlet} from the ASK (Alexa SKills Kit)
+ * This is the endpoint for the amazon skill. Amazon cloud will call this URL. Implements the {@link SpeechletServlet} from the ASK (Alexa SKills Kit)
  * 
  * @author Reinhard
  *

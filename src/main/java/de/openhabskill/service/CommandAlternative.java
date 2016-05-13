@@ -4,8 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * helper class for the intent configuration. can be used to map diffrent spoken
- * commands to a single command that is sent to openHab
+ * helper class for the intent configuration. can be used to map diffrent spoken commands to a single command that is sent to openHab
  * 
  * @author Reinhard
  *
