@@ -17,7 +17,7 @@ import com.amazon.speech.speechlet.SpeechletResponse;
 import com.google.common.collect.Sets;
 
 import de.openhabskill.client.OpenHabClient;
-import de.openhabskill.entity.ItemDao;
+import de.openhabskill.entity.ItemRepository;
 
 /**
  * implements the {@link Speechlet} class from the ASK (Alexa Skills Kit)
@@ -31,7 +31,7 @@ public class OpenHabSpeechlet implements Speechlet {
 
 	private Set<IntentHandler> intentHandlers = Sets.newHashSet();
 
-	public OpenHabSpeechlet(final OpenHabClient openHabClient, final ItemDao itemDao) {
+	public OpenHabSpeechlet(final OpenHabClient openHabClient, final ItemRepository itemDao) {
 		// Initialize the Intent handler
 		intentHandlers.add(new AskTemperatureIntentHandler(openHabClient, itemDao));
 		intentHandlers.add(new SwitchIntentHandler(openHabClient, itemDao));

@@ -1,10 +1,9 @@
 package de.openhabskill;
 
-import javax.validation.constraints.NotNull;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
 
-import org.hibernate.validator.constraints.NotEmpty;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Data;
 
 /**
  * configuration class for the openHab Server
@@ -12,32 +11,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @author Reinhard
  *
  */
+@Data
+@Configuration
+@ConfigurationProperties(value = "openHab")
 public class OpenHabConfiguration {
 
-	@NotEmpty
-	private String host;
+    private String host;
 
-	@NotNull
-	private Integer port;
-
-	@JsonProperty
-	public String getHost() {
-		return host;
-	}
-
-	@JsonProperty
-	public void setHost(String host) {
-		this.host = host;
-	}
-
-	@JsonProperty
-	public Integer getPort() {
-		return port;
-	}
-
-	@JsonProperty
-	public void setPort(Integer port) {
-		this.port = port;
-	}
+    private Integer port;
 
 }

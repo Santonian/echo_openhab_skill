@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!-- Property Configuration -->
+     
+    <property name="default_encoder_pattern" value="%d [%level] [%thread] %logger{36} - %msg%n" />
+    
+    <!-- Console Appender -->
+    <appender name="CL" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <Pattern>${default_encoder_pattern}</Pattern>
+        </encoder>
+    </appender>
+    
+
+    <!-- Root Logger -->
+    <root level="INFO">
+        <appender-ref ref="CL" />
+    </root>
+    
+    <logger name="de.openhabskill" level="DEBUG" />
+    
+
+
+</configuration>

@@ -1,0 +1,34 @@
+spring:
+  datasource:
+    url:              jdbc:h2:file:~/alexaOpenHabSkill
+    username:         sa
+    password:         sa
+    driverClassName:  org.h2.Driver
+  jpa:
+     show-sql: true
+     hibernate:
+        ddl-auto: update
+  
+server:
+  port:         8443
+  ssl:
+    key-store: keystore.p12
+    key-store-password: mypassword
+    keyStoreType: PKCS12
+    keyAlias: tomcat
+#server:
+#  rootPath: /service/*
+#  applicationConnectors:
+#    - type: https
+#      port: 443
+#      keyStorePassword: YOUR_KEYSTORE_PASSWORD
+#      keyStorePath: ./src/main/resources/ssl/keystore.jks
+#      validateCerts: false
+#  adminConnectors:
+#    - type: http
+#      port: 9001 
+ 
+
+openHab:
+  host: localhost
+  port: 8080

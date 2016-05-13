@@ -1,17 +1,14 @@
 package de.openhabskill.client;
 
-import java.net.URI;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestClientException;
+import org.springframework.web.client.RestTemplate;
+import org.springframework.web.util.UriComponentsBuilder;
 
-import javax.ws.rs.WebApplicationException;
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.Status;
-import javax.ws.rs.core.UriBuilder;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import de.openhabskill.OpenHabConfiguration;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * calls a openHab server per REST call to send a command to an item
@@ -19,49 +16,50 @@ import org.slf4j.LoggerFactory;
  * @author Reinhard
  *
  */
+@Slf4j
+@Component
 public class OpenHabClient {
-	private static final Logger LOG = LoggerFactory.getLogger(OpenHabClient.class);
 
-	private final String localhost;
-	private final Integer port;
-	private final Client httpClient;
+    private final RestTemplate restTemplate = new RestTemplate();
 
-	public OpenHabClient(final String localhost, final Integer port, final Client httpClient) {
-		this.httpClient = httpClient;
-		this.localhost = localhost;
-		this.port = port;
-	}
+    @Autowired
+    OpenHabConfiguration openHabConfiguration;
 
-	public boolean sendCommand(final String openHabItemName, final String command) {
-		final WebTarget target = httpClient.target(getBaseURI());
+    public boolean sendCommand(final String openHabItemName, final String command) {
 
-		LOG.debug("Send to OpenHab item {} command {}", openHabItemName, command.toUpperCase());
-		final Response response = target.path(openHabItemName).request().post(Entity.text(command.toUpperCase()));
+        log.debug("Send to OpenHab item {} command {}", openHabItemName, command.toUpperCase());
+        final ResponseEntity<Object> response = restTemplate.postForEntity(getBaseURI().path(openHabItemName).build().toUri(),
+                command.toUpperCase(), Object.class);
 
-		if (response.getStatusInfo().getFamily().equals(Status.Family.SUCCESSFUL)) {
-			LOG.debug("OpenHab communication ok");
-			return true;
-		} else {
-			LOG.error("OpenHab Status Error {} - {}", response.getStatus(), response.getStatusInfo().getReasonPhrase());
-			return false;
-		}
-	}
+        if (response.getStatusCode().is2xxSuccessful()) {
+            log.debug("OpenHab communication ok");
+            return true;
+        } else {
+            log.error("OpenHab Status Error {} - {}", response.getStatusCode().value(),
+                    response.getStatusCode().getReasonPhrase());
+            return false;
+        }
+    }
 
-	public String getState(final String openHabItemName) {
-		final WebTarget target = httpClient.target(getBaseURI());
+    /**
+     * Returns the state of an openHab Item
+     * 
+     */
+    public String getState(final String openHabItemName) {
 
-		String state = "";
-		try {
-			state = target.path(openHabItemName).path("state").request().get(String.class);
-		} catch (WebApplicationException e) {
-			LOG.error("getState request returned with " + e.getResponse().getStatus(), e);
-		}
+        String state = "";
+        try {
+            restTemplate.getForObject(getBaseURI().path(openHabItemName).path("state").build().toUri(), String.class);
+        } catch (RestClientException e) {
+            log.error("Error getting State for Item {} ", openHabItemName, e);
+        }
 
-		return state;
+        return state;
 
-	}
+    }
 
-	private URI getBaseURI() {
-		return UriBuilder.fromUri(String.format("http://%s:%d/rest/items", localhost, port)).build();
-	}
+    private UriComponentsBuilder getBaseURI() {
+        return UriComponentsBuilder.fromPath(
+                String.format("http://%s:%d/rest/items", openHabConfiguration.getHost(), openHabConfiguration.getPort()));
+    }
 }

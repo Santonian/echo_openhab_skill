@@ -12,7 +12,7 @@ import com.google.common.collect.Lists;
 
 import de.openhabskill.client.OpenHabClient;
 import de.openhabskill.entity.Item;
-import de.openhabskill.entity.ItemDao;
+import de.openhabskill.entity.ItemRepository;
 import de.openhabskill.entity.ItemType;
 
 /**
@@ -22,58 +22,58 @@ import de.openhabskill.entity.ItemType;
  *
  */
 public class TvIntentHandler extends IntentHandler {
-	protected static final Logger LOG = LoggerFactory.getLogger(TvIntentHandler.class);
+    protected static final Logger LOG = LoggerFactory.getLogger(TvIntentHandler.class);
 
-	private static final String TV = "OperateTv";
+    private static final String TV = "OperateTv";
 
-	// this could be extended for multiple harmony controlled tvs
-	private static final String LOCATION = "living room";
+    // this could be extended for multiple harmony controlled tvs
+    private static final String LOCATION = "living room";
 
-	private static final String DEFAULT_COMMAND = "ON";
-	private static final String CHANNEL_ITEM_NAME = "CHANNEL";
+    private static final String DEFAULT_COMMAND = "ON";
+    private static final String CHANNEL_ITEM_NAME = "CHANNEL";
 
-	public TvIntentHandler(OpenHabClient openHabClient, ItemDao itemDao) {
-		super(openHabClient, itemDao);
-	}
+    public TvIntentHandler(OpenHabClient openHabClient, ItemRepository itemDao) {
+        super(openHabClient, itemDao);
+    }
 
-	@Override
-	public SpeechletResponse handleIntentInternal(Intent intent) {
-		final Slot action = intent.getSlot(SLOT_ACTION);
-		final Slot channel = intent.getSlot(SLOT_CHANNEL);
+    @Override
+    public SpeechletResponse handleIntentInternal(Intent intent) {
+        final Slot action = intent.getSlot(SLOT_ACTION);
+        final Slot channel = intent.getSlot(SLOT_CHANNEL);
 
-		// Only one Slot can be filled
-		if (action != null && action.getValue() != null) {
-			final Item item = itemDao.findItem(LOCATION, action.getValue(), ItemType.TV);
-			if (item != null) {
-				openHabClient.sendCommand(item.getOpenHabItem(), DEFAULT_COMMAND);
-			}
-		} else if (channel != null && channel.getValue() != null) {
-			final Item item = itemDao.findItem(LOCATION, CHANNEL_ITEM_NAME, ItemType.TV);
-			if (item != null) {
-				openHabClient.sendCommand(item.getOpenHabItem(), channel.getValue());
-			}
-		}
+        // Only one Slot can be filled
+        if (action != null && action.getValue() != null) {
+            final Item item = itemRepository.findByLocationAndItemNameAndItemType(LOCATION, action.getValue(), ItemType.TV);
+            if (item != null) {
+                openHabClient.sendCommand(item.getOpenHabItem(), DEFAULT_COMMAND);
+            }
+        } else if (channel != null && channel.getValue() != null) {
+            final Item item = itemRepository.findByLocationAndItemNameAndItemType(LOCATION, CHANNEL_ITEM_NAME, ItemType.TV);
+            if (item != null) {
+                openHabClient.sendCommand(item.getOpenHabItem(), channel.getValue());
+            }
+        }
 
-		return randomOkResponse();
-	}
+        return randomOkResponse();
+    }
 
-	@Override
-	public String getIntentName() {
-		return TV;
-	}
+    @Override
+    public String getIntentName() {
+        return TV;
+    }
 
-	@Override
-	protected Logger getLogger() {
-		return LOG;
-	}
+    @Override
+    protected Logger getLogger() {
+        return LOG;
+    }
 
-	@Override
-	protected List<String> getSlotNames() {
-		return Lists.newArrayList(SLOT_ACTION, SLOT_CHANNEL);
-	}
+    @Override
+    protected List<String> getSlotNames() {
+        return Lists.newArrayList(SLOT_ACTION, SLOT_CHANNEL);
+    }
 
-	@Override
-	protected List<String> getOptionalSlotNames() {
-		return Lists.newArrayList(SLOT_ACTION, SLOT_CHANNEL);
-	}
+    @Override
+    protected List<String> getOptionalSlotNames() {
+        return Lists.newArrayList(SLOT_ACTION, SLOT_CHANNEL);
+    }
 }
