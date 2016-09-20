@@ -1,6 +1,6 @@
 package de.openhabskill.entity;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  * Spring Data Repository for CRUD {@link Item} operations
@@ -8,6 +8,6 @@ import org.springframework.data.repository.CrudRepository;
  * @author Reinhard
  *
  */
-public interface ItemRepository extends CrudRepository<Item, Integer> {
-    Item findByLocationAndItemNameAndItemType(String location, String itemName, ItemType itemType);
+public interface ItemRepository extends JpaRepository<Item, Integer> {
+	Item findByLocationAndItemNameAndItemType(String location, String itemName, ItemType itemType);
 }

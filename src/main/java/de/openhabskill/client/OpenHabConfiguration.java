@@ -1,4 +1,4 @@
-package de.openhabskill;
+package de.openhabskill.client;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
@@ -16,8 +16,8 @@ import lombok.Data;
 @ConfigurationProperties(value = "openHab")
 public class OpenHabConfiguration {
 
-    private String host;
+	private String host;
 
-    private Integer port;
+	private Integer port;
 
 }

@@ -5,30 +5,49 @@ spring:
     password:         sa
     driverClassName:  org.h2.Driver
   jpa:
-     show-sql: true
+     show-sql: false
      hibernate:
         ddl-auto: update
+        
   
 server:
   port:         8443
   ssl:
-    key-store: keystore.p12
-    key-store-password: mypassword
-    keyStoreType: PKCS12
-    keyAlias: tomcat
-#server:
-#  rootPath: /service/*
-#  applicationConnectors:
-#    - type: https
-#      port: 443
-#      keyStorePassword: YOUR_KEYSTORE_PASSWORD
-#      keyStorePath: ./src/main/resources/ssl/keystore.jks
-#      validateCerts: false
-#  adminConnectors:
-#    - type: http
-#      port: 9001 
- 
+    key-store: ./src/main/resources/ssl/keystore.jks
+    key-store-password: password
+    
 
 openHab:
   host: localhost
   port: 8080
+  
+ #test setup for alternate configuration
+alexa:
+  office:
+    switch:
+      light: Licht_EG_Buero_Decke
+      fishtank: Steckdose_EG_Buero
+    rollershutter:
+      north: Rollade_EG_Buero_Nord
+      east: Rollade_EG_Buero_Ost
+    number:
+      temperature: Temp_EG_Buero      
+    tv:
+    dimmer:
+    color:
+  livingroom:
+    switch:
+      fishtank: Steckdose_EG_Wohnzimmer_Aquarium_oben
+    rollershutter:
+      leftdoor: Rollade_EG_Wohnzimmer_SchiebetuerLinks
+      rightdoor: Rollade_EG_Wohnzimmer_SchiebetuerRechts
+    number:
+      temperature: Temp_EG_Wohnzimmer_Sofa
+    tv:
+      
+    dimmer:
+      light: Dimmer_EG_Wohnzimmer
+    color:
+      fireplace: 
+    
+              

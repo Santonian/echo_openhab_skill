@@ -4,6 +4,8 @@ import java.util.Set;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.amazon.speech.slu.Intent;
 import com.amazon.speech.speechlet.IntentRequest;
@@ -14,10 +16,6 @@ import com.amazon.speech.speechlet.SessionStartedRequest;
 import com.amazon.speech.speechlet.Speechlet;
 import com.amazon.speech.speechlet.SpeechletException;
 import com.amazon.speech.speechlet.SpeechletResponse;
-import com.google.common.collect.Sets;
-
-import de.openhabskill.client.OpenHabClient;
-import de.openhabskill.entity.ItemRepository;
 
 /**
  * implements the {@link Speechlet} class from the ASK (Alexa Skills Kit)
@@ -25,21 +23,13 @@ import de.openhabskill.entity.ItemRepository;
  * @author Reinhard
  *
  */
+@Component
 public class OpenHabSpeechlet implements Speechlet {
 
 	private static final Logger LOG = LoggerFactory.getLogger(OpenHabSpeechlet.class);
 
-	private Set<IntentHandler> intentHandlers = Sets.newHashSet();
-
-	public OpenHabSpeechlet(final OpenHabClient openHabClient, final ItemRepository itemDao) {
-		// Initialize the Intent handler
-		intentHandlers.add(new AskTemperatureIntentHandler(openHabClient, itemDao));
-		intentHandlers.add(new SwitchIntentHandler(openHabClient, itemDao));
-		intentHandlers.add(new TvIntentHandler(openHabClient, itemDao));
-		intentHandlers.add(new RollershutterIntentHandler(openHabClient, itemDao));
-		intentHandlers.add(new DimIntentHandler(openHabClient, itemDao));
-		intentHandlers.add(new ColorIntentHandler(openHabClient, itemDao));
-	}
+	@Autowired
+	private Set<IntentHandler> intentHandlers;
 
 	@Override
 	public SpeechletResponse onIntent(IntentRequest request, Session session) throws SpeechletException {

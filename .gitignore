@@ -6,3 +6,5 @@
 /.project
 /echo_local.yaml
 /target/
+/local_application.yaml
+/application.yaml

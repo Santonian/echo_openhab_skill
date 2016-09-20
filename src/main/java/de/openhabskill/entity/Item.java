@@ -5,7 +5,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * Represents an Open Hab Item
@@ -15,31 +17,34 @@ import lombok.Data;
  */
 @Data
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 public class Item {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    public Integer id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	public Integer id;
 
-    /**
-     * The name of the item in openhab
-     */
-    public String openHabItem;
+	/**
+	 * The name of the item in openhab
+	 */
+	public String openHabItem;
 
-    /**
-     * the Itemtype (switch, temperature, rollershutter, ...)
-     */
-    private ItemType itemType;
+	/**
+	 * the Itemtype (switch, temperature, rollershutter, ...)
+	 */
+	private ItemType itemType;
 
-    /**
-     * itemname to identifiy the item inside a location. This is the spoken name to alexa
-     * 
-     */
-    private String itemName;
+	/**
+	 * itemname to identifiy the item inside a location. This is the spoken name
+	 * to alexa
+	 * 
+	 */
+	private String itemName;
 
-    /**
-     * item location. This is the location which is spoken to alexa
-     * 
-     */
-    private String location;
+	/**
+	 * item location. This is the location which is spoken to alexa
+	 * 
+	 */
+	private String location;
 
 }
